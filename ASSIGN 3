@@ -1,0 +1,135 @@
+1.	Write a program to count the numbers of characters in the given string and store them in a dictionary data structure.
+Sol->
+a="hello"
+b={}
+for char in a:
+    if char in b:
+        b[char]+=1
+    else:
+        b[char]=1
+print(b)    
+
+
+
+ 
+2.	Write function to compute gcd and lcm of two numbers.
+Sol->
+a=int(input("enter the number1: "))
+b=int(input("enter the number2: "))
+l=0
+g=0
+for i in range(2,min(a,b)+1):
+    if a%i==0 and b%i==0 and l==0:
+        l=i
+        g=i
+    elif a%i==0 and b%i==0 and l!=0:
+        g=i
+print(f"gcd is: {g} ans lcm is: {l}")
+
+
+
+
+ 
+3.	Write a function ball _collide that takes two balls as parameters and computes if they are colliding. Your function should return a Boolean representing whether or not the balls are colliding. Represent a ball on a plane as a tuple of (x, y, r), r being the radius. If (distance between two balls centers) &lt;= (sum of their radii) then (they are colliding)
+Sol->
+import math
+a1=int(input("enter the coordinate of a1:  "))
+b1=int(input("enter the coordinate of b1:  "))
+r1=int(input("enter the coordinate of r1:  "))
+a2=int(input("enter the coordinate of a2 "))
+b2=int(input("enter the coordinate of b1:  "))
+r2=int(input("enter the coordinate of r1:  "))
+dist=math.sqrt((a1-a2)**2+(b1-b2)**2)
+if dist<=(r1+r2):
+    print("they collide")
+else:
+    print("they dont collide")
+
+
+
+
+4.	Find mean, median, mode for the given set of numbers in a list.
+Sol->
+import statistics
+a=[1,2,2,4,5,6,7,8,9,10]
+l=len(a)
+sum=0
+for i in a:
+    sum+=i
+mean=sum/10
+if l%2==1:
+    mead=a[int((l+1)/2)]
+else:
+    mead=(a[int((l+1)/2)]+a[int(l/2)])/2
+
+mode=statistics.mode(a)
+print(f"mean is: {mean} , meadian is: {mead} and mode is: {mode}")
+    
+
+
+
+
+
+6. Write a program to implement
+a. Bubble sort,
+b. Merge sort,
+c. Selection sort and
+d. Insertion sort.
+Execute these sorting algorithms using switch case.
+Sol->
+def selection_sort(arr):
+    for i in range(len(arr)):
+        min_indx = i
+        for j in range(i+1, len(arr)):
+            if arr[j] < arr[min_indx]:
+                min_idx = j
+        arr[i], arr[min_indx] = arr[min_indx], arr[i]
+    return arr
+
+def bubble_sort(a):
+    for i in range(len(a)):
+        for j in range(0, len(a)-i-1):
+            if a[j] > a[j+1]:
+                a[j], a[j+1] = a[j+1], a[j]
+    return a
+                
+
+        
+def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and key < arr[j]:
+            arr[j + 1] = arr[j]
+            j =j-1
+        arr[j + 1] = key
+    return arr        
+        
+
+def algo(ch, arr):
+    if ch == 1:
+        a1=bubble_sort(arr)
+        print("Sorted array Bubble Sort:", a1)
+    elif ch == 2:
+        a2=selection_sort(arr)
+        print("Sorted array Selection Sort:", a2)
+    elif ch == 3:
+        a3=insertion_sort(arr)
+        print("Sorted array Insertion Sort:", a3)
+    else:
+        print("wrong")
+
+        
+arr = [68,76,60,92,65]
+print("Original array is : \n", arr)
+
+print("Choose case")
+print("1-> Selection Sort")
+print("2-> Bubble Sort")
+print("3-> Insertion Sort")
+
+choice = int(input("Enter your choice: "))
+algo(choice, arr)
+
+o/p->
+ 
