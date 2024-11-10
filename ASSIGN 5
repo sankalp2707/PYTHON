@@ -1,0 +1,118 @@
+
+Q->10 
+test_list = [(15, 6), (16, 7), (16, 8), (16, 10), (17, 13)]
+
+d= { }
+
+for i in test_list:
+    if i[0] not in d:
+        d[i[0]]=tuple(i[1:])
+    elif i[0] in d:
+        d[i[0]]+=tuple(i[1:])
+    
+t=[]    
+for i in d:
+    t.append((i,)+tuple(d[i]))
+    
+print(t)
+
+
+
+
+Q->1 1. You are given two large lists of integers representing the items sold by two different stores.
+Your task is to find the items that were sold in only one of the two stores, but not both (i.e.,
+symmetric difference). Optimize the solution for large datasets.
+Eg. store1_sales = [101, 102, 103, 104, 105]
+store2_sales = [103, 104, 106, 107, 108]
+print(store1_sales. symmetric_difference(store2_sales))
+CODE->
+store1_sales= [101, 102, 103, 104, 105]
+store2_sales = [103, 104, 106, 107, 108]
+s1=set(store1_sales)
+s2=set(store2_sales)
+print(s1. symmetric_difference(s2))
+
+
+
+
+
+ 
+Q->2You are managing a social networking app. Each user can have friends on different platforms
+(e.g., Facebook, Twitter, LinkedIn). You need to write a function that, given sets of friends
+from different platforms, finds the mutual friends across all platforms.
+E.g.
+facebook_friends = {"Alice", "Bob", "Charlie"}
+twitter_friends = {"Bob", "Charlie", "David"}
+linkedin_friends = {"Bob", "Charlie", "Emma"}
+CODE:->
+facebook_friends = {"Alice", "Bob", "Charlie"}
+twitter_friends = {"Bob", "Charlie", "David"}
+linkedin_friends = {"Bob", "Charlie", "Emma"}
+print(facebook_friends.intersection((twitter_friends.intersection(linkedin_friends))))
+
+
+
+
+
+
+
+Q->3
+Given a list of integers representing a sequence (but with some numbers missing), find all the
+missing numbers from the sequence.
+
+Q->4You are working with a large dataset of email addresses. Your task is to detect duplicate email
+addresses efficiently.
+CODE:->
+s=[1,2,3,4,5,1,3,5,7,8,9,7]
+b=set(s)
+c=list(b)
+for i in c:
+    c.remove(i)
+print(c)
+
+
+
+ 
+Q->5
+You are working on a data processing task. You need to check whether one set of values is a
+subset of another large set efficiently.
+CODE:
+s1={1,2,3,4,5,6,7,8,9,2,3,4,5,6,7,8}
+s2={1,2,3,4,7}
+print(s1.issubset(s1))
+
+
+
+ 
+Q->6
+You are given multiple documents, each represented as a set of words. Your task is to compute
+the set of words that appear in exactly one document.
+CODE:->
+s1={"aaa","bbb","cca","ddb"}
+s2={"aba","aca","aa","bca"}
+
+u=(s1.union(s2))
+d1=(s1.intersection(s2))
+
+
+print(u.difference(d1))
+
+
+
+ 
+Q->7
+Given two large datasets representing different product inventories from two warehouses,
+write a function to find the products available in both inventories.
+CODE:->
+warehouse1={1,2,3,4,5,6,7,8,9,8,6,5,4}
+warehouse2={4,4,6,7,9,0}
+print(warehouse1.intersection(warehouse2))
+
+
+
+ 
+Q->8
+Given a directed graph as an adjacency list (dictionary), where each node points to a set of
+nodes it connects to, write a function to find all nodes that are reachable from a given node
+using DFS (Depth First Search).
+E.g. graph = { 'A': {'B', 'C'}, 'B': {'D'}, 'C': {'D'}, 'D': {'E'}, 'E': set()}
