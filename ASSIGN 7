@@ -1,0 +1,149 @@
+
+#1->
+def factorial(n):
+        if n in cache:
+                return cache[n]
+        if n==0 or n==1:
+                return 1
+        else:
+                result=n*factorial(n-1)
+        cache[n]=result
+        return result
+cache={}
+
+print(factorial(5))  
+print(factorial(6))  
+print(factorial(5))  
+
+
+#2->
+
+
+def multiply_by_two(x):
+    return x * 2
+
+def add_three(x):
+    return x + 3
+
+def create_pipeline(functions):
+    def pipeline(input_value):
+        ans = input_value
+        for func in functions:
+            ans= func(ans)  
+        return ans
+    return pipeline
+
+
+
+pipeline = create_pipeline([multiply_by_two, add_three])
+
+print(pipeline(5))  
+
+
+#3->
+def multiply(x):
+        def inner(y):
+                return x*y
+        return inner
+
+print(multiply(2)(3))
+
+
+
+
+#4->
+from functools import reduce
+
+students = [
+    {'name': 'Alice', 'score': 45},
+    {'name': 'Bob', 'score': 55},
+    {'name': 'Charlie', 'score': 65},
+    {'name': 'David', 'score': 75}]
+
+sorted_score = filter(lambda student: student['score'] >= 50, students)
+
+names = list(map(lambda student: student['name'], sorted_score))
+
+total_score = reduce(lambda acc, student: acc + student['score'], students, 0)
+average_score = total_score / len(students)
+
+print(names)  
+print(average_score)  
+
+
+#5->
+def bank_account(initial_balance):
+    balance = initial_balance  
+
+    
+    def deposit(amount):
+        nonlocal balance  
+        balance += amount
+        print(f"Deposited: {amount}, New Balance: {balance}")
+
+    
+    def withdraw(amount):
+        nonlocal balance  
+        if amount > balance:
+            print("Insufficient funds!")
+        else:
+            balance -= amount
+            print(f"Withdrew: {amount}, New Balance: {balance}")
+
+    
+    return type('Account', (), {'deposit': deposit, 'withdraw': withdraw})
+
+account = bank_account(100)  
+account.deposit(50)  
+account.withdraw(30)  
+account.withdraw(200)  
+
+
+#6->
+
+products = [('Laptop', 1000), ('Phone', 500), ('Tablet', 300)]
+
+sorted_products = sorted(products, key=lambda x: x[1], reverse=True)
+
+print(sorted_products)
+
+
+#7->
+from functools import partial
+
+power_of_two = partial(pow, exp=2)
+
+result = power_of_two(5)
+print(result)  
+
+#8->
+def polynomial_creator(*coefficients):
+    
+    def evaluate(x):
+        result = 0
+        degree = len(coefficients) - 1  
+        for i, coeff in enumerate(coefficients):
+            result += coeff * (x ** (degree - i))
+        return result
+    
+    return evaluate
+
+p = polynomial_creator(3, 0, -4)  
+result = p(2)  
+print(result)  
+
+
+#9->
+listt=[1,2,3,4,5,6,7,8,9,10]
+ans=list(filter(lambda x:x%2==0,listt))
+print(ans)
+
+#10->
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+squared_evens = list(map(lambda x: x ** 2, filter(lambda x: x % 2 == 0, numbers)))
+
+print("Squares of even numbers:", squared_evens)
+
+
+
