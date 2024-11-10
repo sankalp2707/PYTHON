@@ -1,0 +1,219 @@
+#1->
+CODE->
+input_file_path="D:\Dell laptop data\Coding\Python lab\lab12(1)\sample.txt"
+output_file_path="D:\Dell laptop data\Coding\Python lab\lab12(1)\data.txt"
+
+f1=open(input_file_path,"r")
+f2=open(output_file_path,"w")
+data=""
+for line in f1.readlines():
+data+=line
+
+words=set()
+for word in data.split():
+if word not in words:
+count=0
+count=data.count(word)
+words.add(word)
+f2.write(f"{word}\t\t:{count}\n")
+else:
+continue
+
+f1.close()
+f2.close()
+
+
+#2->
+ 
+ 
+
+ 
+CODE->
+input_file_path1="D:\Dell laptop data\Coding\Python lab\lab12(1)\sample1.txt"
+input_file_path2="D:\Dell laptop data\Coding\Python lab\lab12(1)\sample2.txt"
+input_file_path3="D:\Dell laptop data\Coding\Python lab\lab12(1)\sample3.txt"
+output_file_path="D:\Dell laptop data\Coding\Python lab\lab12(1)\data.txt"
+
+f1=open(input_file_path1,"r")
+f2=open(input_file_path2,"r")
+f3=open(input_file_path3,"r")
+f=open(output_file_path,"w")
+data=""
+for line in f1.readlines():
+data+=line
+for line in f2.readlines():
+data+=line
+for line in f3.readlines():
+data+=line
+
+f.write(data)
+
+f1.close()
+f2.close()
+f3.close()
+f.close()
+
+O/P->
+ 
+S2->
+ 
+S3->
+ 
+ 
+
+
+
+#3->
+CODE->
+input_file_path="D:\Dell laptop data\Coding\Python lab\lab12(1)\sample.txt"
+output_file_path="D:\Dell laptop data\Coding\Python lab\lab12(1)\data.txt"
+keyword=input("Enter the word to be searched: ")
+
+with open(input_file_path, "r") as f1:
+lines=f1.readlines()
+
+with open(output_file_path,"w") as f:
+for line in lines:
+if keyword in line:
+f.write(line)
+O/P->
+S1->
+ 
+ 
+
+
+
+#4->
+CODE->
+import os
+
+def copy_files(src, dest):
+try:
+if not os.path.exists(dest):
+os.makedirs(dest)
+
+for item in os.listdir(src):
+src_path = os.path.join(src, item)
+dest_path = os.path.join(dest, item)
+
+if os.path.isfile(src_path):
+os.rename(src_path, dest_path)
+elif os.path.isdir(src_path):
+copy_files(src_path, dest_path)
+
+print(f"All files copied from {src} to {dest}")
+
+except PermissionError:
+print("Permission denied: unable to copy some files. Try running the
+script as an administrator.")
+except FileNotFoundError:
+print("Source or destination directory not found.")
+except Exception as e:
+print(f"An error occurred: {e}")
+
+# Specify source and destination directories
+source_directory = "D: \\test_directory"
+backup_directory = "D: \\dest_directory"
+
+copy_files(source_directory, backup_directory)
+
+
+
+
+
+#5->
+CODE->
+input_file_path="D:\Dell laptop data\Coding\Python lab\lab12(1)\sample.txt"
+output_file_path="D:\Dell laptop data\Coding\Python lab\lab12(1)\data.txt"
+
+with open(input_file_path,"r") as f1:
+lines=f1.readlines()
+
+with open(output_file_path,"w") as f:
+for line in lines[ ::- 1]:
+f.write(line)
+
+O/P->
+S1->
+ 
+DATA.TXT->
+ 
+
+#6->
+CODE->
+folder_path="D:\MinGW"
+import os
+total_size=0
+dir_data={}
+for root, dirs, files in os.walk(folder_path):
+dir size=0
+for filename in files:
+file_path=os.path.join(root,filename)
+file_size=os.path.getsize(file_path)
+dir_size+=file_size
+total_size+=file_size
+dir_data[root]=dir_size
+
+for dir in dir_data:
+print(f"The size of {dir}\t\tis {dir data.get(dir)}")
+
+
+
+
+#7->
+CODE->
+import os, datetime
+
+folder_path="insert your required file path here"
+target_time=datetime.datetime.now()
+deleted_data=[]
+for root, dirs, files in os.walk(folder_path):
+for file in files:
+file_path=os.path. join(root,file)
+last_mtimestamp=os.path.getmtime(file_path)
+last_mtime=datetime.datetime. fromtimestamp(last_mtimestamp)
+if target_time-last_mtime > 30:
+os.remove(file_path)
+deleted_data. append(file_path)
+
+for file in deleted_data:
+print(f"Deleted: {file}")
+
+
+
+
+#8->
+CODE->
+import os
+
+folder_path="D: \\test_directory"
+
+for root, dirs, files in os.walk(folder_path):
+created_dirs=set()
+for file in files:
+file_path=os.path. join(root,file)
+file_extension=file.split(".")[-1]
+new_directory=os.path. join(root, file_extension)
+
+if file_extension not in created_dirs:
+created_dirs.add(file_extension)
+os.mkdir(new_directory)
+
+os.rename(file_path,os.path.join(new_directory,file))
+
+
+
+#9->
+CODE->
+import os, datetime
+
+folder_path="D:\\test_directory"
+
+for root, dirs, files in os.walk(folder_path):
+for file in files:
+file_path=os.path. join(root, file)
+last_mtime=datetime.datetime. fromtimestamp(os.path.getmtime(file_path)
+
+print(f"File name: {file},\t Size: {os.path.getsize(file_path)},\t
+Last modified time: {last_mtime}")
+
