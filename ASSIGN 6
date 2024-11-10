@@ -1,0 +1,197 @@
+
+1. Define a function that can receive two integer numbers form user and
+compute their sum and then print it on console.
+def sum(x,y):
+    print(x+y)
+x=int(input("enter no 1: "))
+y=int(input("enter no 2: "))
+sum(x,y)
+
+
+
+
+ 
+4. Define a function that can accept two strings as input and concatenate
+them and then print it in console.
+def sum(x,y):
+    print(x+y)
+x=input("enter no 1: ")
+y=input("enter no 2: ")
+sum(x,y)
+
+
+
+
+ 
+5. Define a function which can print a dictionary where the keys are
+numbers between 1 and 20 (both included) and the values are square of
+keys.
+def func(dixt):
+    for key,val in dict.items():
+        print(f"key: {key} , val: {val}")
+dict={i:i**2 for i in range(1,21) }
+func(dict)
+
+o/p->
+ 
+6. Define a function which can generate a list where the values are square
+of numbers between 1 and 20 (both included). Then the function needs to
+print the first 5 elements in the list.
+def func(list):
+    for i in range(0,5):
+        print(list[i])
+list=[ i**2 for i in range(1,21) ]
+func(list)
+
+
+
+
+ 
+7. The Fibonacci Sequence is computed based on the following formula:
+f(n)=0 if n=0
+f(n)=1 if n=1
+f(n)=f(n-1)+f(n-2) if n>1
+Write a function to compute the value of f(n) with a given n input by
+console.
+def func(n):
+    if(n==0 or n==1):
+        return n
+    return func(n-1)+func(n-2)  
+print(func(7))
+
+
+
+
+
+ 
+9. Write a Python funcion that changes the value of a variable defined
+inside a function from outside of the function.
+def func(n):
+    x=34
+    print(x)    
+x=20
+func(20)
+print(x)
+
+
+
+
+
+ 
+10. Write a function append_item(item, item_list=[]) that appends an item
+to a list and returns the list.
+i. Test this function by calling it multiple times with the same
+default argument.
+ii. Explain why the list retains its values across function calls.
+iii. Modify the function to avoid this behavior using None as the
+default argument.
+def func(n,list):
+    list.append(n)
+    return list 
+list=[2,4,6,8]
+x=list
+x=func(5,list)
+x=func(5,list)
+x=func(5,list)
+x=func(5,list)
+print(list)
+print(x)
+
+
+ 
+
+def func(item, item_list=None):
+    if item_list is None:
+        item_list = []  
+    item_list.append(item)
+    return item_list
+
+print(func(1))  
+print(func(2))  
+print(func(3)) 
+
+
+ 
+
+	The list retains its values across function calls because default arguments are evaluated once when the function is defined, not at each call. As a result, the same list is reused, causing it to accumulate values from previous calls.
+
+2. Write a function which takes a text and encrypts it with a Caesar cipher.
+This is one of the simplest and most commonly known encryption techniques.
+Each letter in the text is replaced by a letter some fixed number of
+positions further in the alphabet. What about decrypting the coded text?
+The Caesar cipher is a substitution cipher.
+ 
+def func(text):
+    result = ""
+    for char in text:
+        
+        if char.isupper():
+            result += chr((ord(char) + 23 - 65) % 26 + 65)
+        
+        elif char.islower():
+            result += chr((ord(char) + 23 - 97) % 26 + 97)
+        else:
+            
+            result += char
+    return result
+
+
+
+message = "abcdef"
+ans=func(message)
+print(f"Encrypted: {ans}")
+
+
+
+
+
+ 
+8. Write a Python program to detect the number of local variables declared
+in a function.
+def scope():
+   a = 25.5
+   b = 5
+   str= 'abcd'
+
+print("Number of local varibales available:",scope.__code__.co_nlocals)
+
+
+
+ 
+3. We can create another substitution cipher by permutating the alphabet
+and map the letters to the corresponding permutated alphabet. Write a
+function which takes a text and a dictionary to decrypt or encrypt the
+given text with a permutated alphabet.
+
+def func2(text, c):
+    result = ""
+    for char in text:
+        
+        if char in c:
+            result += c[char]
+        else:
+            result += char  
+    return result
+
+def dec(a, pa):
+    return {a[i]: pa[i] for i in range(len(a))}
+
+oa = 'abcdefghijklmnopqrstuvwxyz'
+pa = 'xyzabcdefghijklmnopqrstuvw'
+
+dict1 = dec(oa, pa)
+dict2 = dec(pa, oa)
+
+text =input("enter the string")
+encrypt = func2(text, dict1)
+print(f"Encrypted: {encrypt}")
+
+decrypt = func2(encrypt, dict2)
+print(f"Decrypted: {decrypt}")
+
+
+
+
+ 
+
+
