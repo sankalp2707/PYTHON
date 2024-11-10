@@ -1,1 +1,164 @@
+#1->
+a=int(input("Enter the number: "))
+if a%2==0:
+    print("It is a even number")
+else :
+    print("It is a odd number")
 
+
+#2->
+for i in range(1,11):
+    print(f"1/{i} ->  {1/i}")
+
+
+
+#3->
+a=int(input("Enter the number: "))
+while a>-1:
+    print(a)
+    a=a-1;
+
+
+
+#4->
+from datetime import datetime
+import pytz
+
+current_time = datetime.now(pytz.timezone('Asia/Kolkata'))
+
+formatted_time = current_time.strftime("%a %B %d %H:%M:%S IST %Y")
+print(formatted_time)
+
+
+
+
+#5->
+a=int(input("Enter the numbers: "))
+b=int(input("Enter the numbers: "))
+c=int(input("Enter the numbers: "))
+
+if a>b:
+    if a>c:
+        print(f"{a} is largest")
+    else:
+        print(f"{c} is largest")
+else:
+    if b>c:
+        print(f"{b} is largest")
+    else:
+        print(f"{c} is largest")
+
+
+
+
+#6->
+a=input("enter the c to convert in celcius of f for farenhiet: ")
+b=int(input("enter the value"))
+if a=="f":
+    print(f"value in farenhiet is: {(((b/5)*9)+32)/9}")
+else:
+    print(f"value in celcius is: {(b-(32/9))*5}")
+
+
+
+
+#7->
+print("Prime numbers in range 1-20 are: ")
+for i in range (2,21):
+    cnt=0
+    for t in range(1,i):
+        if (i%t)==0:
+            cnt=cnt+1;
+    if cnt==1:
+        print(i)
+
+
+
+#8->
+a=int(input("enter the side of triangle 1: "))
+b=int(input("enter the side of triangle 2: "))
+c=int(input("enter the side of triangle 3: "))
+if (a*a==b*b+c*c or b*b==a*a+c*c  or c*c==a*a+b*b):
+    print("It is a right angle triangle ")
+else:
+    print("It is not a right angle triangle ")
+
+
+
+
+#9->
+a=int(input("enter the marks of test 1: "))
+b=int(input("enter the marks of test 2: "))
+c=int(input("enter the marks of test 3: "))
+t1=(a+b)/2
+t2=(b+c)/2
+t3=(a+c)/2
+
+if t1>t2:
+    if t1>t3:
+        print(f"Average of best two test marks out of three test’s marks is {t1}")
+    else:
+        print(f"Average of best two test marks out of three test’s marks is {t3}")
+else:
+    if t2>t3:
+        print(f"Average of best two test marks out of three test’s marks is {t2}")
+    else:
+        print(f"Average of best two test marks out of three test’s marks is {t3}")
+
+
+
+#10->
+a=input("enter the value ")
+l=len(a)
+#a=int(a)
+cnt=0
+for i in range(0,int(l/2)):
+    if a[i]!=a[-1-1]:
+        cnt=cnt+1
+if cnt==0:
+    print("It is a palindrome number")
+else:
+    print("It is not a palindrome number")
+
+if cnt==0:
+    for i in range(0,l/2):
+        cnt=0;
+        for j in range(0,l):
+            if a[i]==a[j]:
+                cnt=cnt+1
+        print(f"{i} appears {cnt} times")
+else:
+    
+    for i in range(0,l):
+        cnt=0
+        flag=0
+        for j in range(i,l):
+            if a[i]==a[j]:
+                cnt=cnt+1
+        for k in range(0,i):
+            if a[i]==a[k]:
+                flag=1
+        if flag==0:
+            print(f"{i} appears {cnt} times")
+
+
+
+#11->
+a=input("enter the word or sentence ")
+lower=0
+upper=0
+digit=0
+space=0
+for char in a:
+    if char.islower():
+        lower=lower+1
+    elif char.isupper():
+        upper=upper+1
+    elif char==" ":
+        space+=1
+    else:
+        digit+=1
+print(f"""This sentence has {space+1} words
+This sentence has {digit} digits
+{upper} upper case letters
+{lower} lower case letters""")
