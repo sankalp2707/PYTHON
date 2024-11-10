@@ -1,0 +1,133 @@
+Q1->
+import math
+a=int(input("number of element"))
+b=[]
+for i in range(0,a):
+    b.append(int(input("enter the number: ")))
+ans=[]
+for i in b:
+    ans.append(math.factorial(i))
+for i in range(0,a):
+    if i==a-1:
+        print(ans[i])
+    else:
+        print(f"{ans[i]} , ",end=" ")
+
+
+
+
+
+ 
+Q2->a=input("enter the comma separated numbers : ")
+b=a.split(",")
+for i in b:
+    print(i , end=" ")
+print("\n")
+
+
+
+
+
+ 
+Q3->import math
+a=input("enter the comma separated numbers: ")
+b=a.split(",")
+c=50
+h=30
+ans=[]
+for i in b:
+    temp=math.sqrt((2*c*int(i))/h)
+    ans.append(temp)
+for i in ans:
+    print(math.floor(i),sep=",",end=" ")
+    
+
+
+
+
+Q4-> a=input("enter the comma separated string: ")
+b=a.split(",")
+c=sorted(b)
+l=len(c)
+for i in range(0,l):
+    if i==l-1:
+        print(c[i])
+    else:
+        print(f"{c[i]} , ",end=" ")
+
+
+
+
+Q5-> a=["0000","0101","1010","1111"]
+b=input("enter the bits in comma separated form: ")
+c=b.split(",")
+ans=[]
+for i in c:
+    if i in a:
+        ans.append(i)
+l=len(ans)
+for i in range(0,l):
+    if i==l-1:
+        print(ans[i])
+    else:
+        print(f"{ans[i]} , ",end=" ")
+
+
+
+
+
+Q6-> test=[[5,6],[4,7,10,17]]
+ans=[]
+for i in test:
+    for j in i:
+        t=(j, )
+        ans.append(t)
+print(ans)
+
+o/p->
+ 
+Q7-> test=[("tom",19,80),("john",20,90),("jony",17,91),("jony",17,93),("json",21,85)]
+ans=sorted(test, key=lambda x:(x[0],x[1],x[2]))
+print(ans)
+
+
+
+
+ 
+Q8-> import math
+l=[]
+for i in range(0,4):
+    ele=[input(),int(input())]
+    l.append(ele)
+x=0
+y=0
+for i in range(0,4):
+    if i==0:
+        x=x+l[0][1]
+    elif i==1:
+        x=x-l[1][1]
+    elif i==2:
+        y=y+l[2][1]
+    else :
+        y=y-l[3][1]
+ans=math.sqrt(x**2+y**2)
+print(round(ans))
+        
+
+
+
+ 
+Q9-> l=input("enter the string : ")
+ans={ }
+y=ans.split(' ')
+y.sort()
+
+for i in y:
+    if i not in ans:
+        ans[i]=1
+    else:
+        ans[i]+=1
+
+print(ans)
+
+
