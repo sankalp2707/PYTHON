@@ -1,1 +1,81 @@
+#1->
+import sys
+print(sys.version)
+
+
+#2->
+import keyword
+k=keyword.kwlist
+print(",".join(k))
+
+
+#3->
+name=input("Enter the name of user")
+age=int(input("Enter the age of user"))
+left=2024+(100-age)
+print(f"Year {name} will turn 100 is {left}")
+
+
+#4->
+import math
+r=int(input("Enter the radius of circle"))
+area=(math.pi)*r*r
+print(f"Area of circle is: {area}")
+
+
+
+#5->
+n=int(input("Enter the number "))
+if n%2==0:
+    print("It is a even number")
+else:
+    print("It is odd number")
+
+
+
+
+#6->
+from decimal import Decimal
+a=Decimal('0.1')
+b=Decimal('0.2')
+c=Decimal('0.3')
+x=round(a+b,1)
+if (a+b)==c:
+    print("YES THEY ARE EQUAL")
+else:
+    print("THEY ARE NOT EQUAL")
+
+
+
+#7->
+a=input("enter first string")
+b=input("enter second string")
+c=b[0:2]+a[2:]+"  "+a[0:2]+b[2:]
+print(f"New string is: {c}")
+
+
+#8->
+a=input("Enter the string/keyword ")
+b=a.isidentifier()
+if b:
+    print("IT IS A IDENTIFIER")
+else :
+    print("IT IS NOT A IDENTIFIER")
+
+
+
+#9->
+a=input("Enter the string ")
+start=a[len(a)-1:]
+mid=a[1:len(a)-1]
+end=a[0:1]
+new=start+mid+end
+print(f"New string is: {new}")
+
+
+#10->
+a=input("Enter the string : ")
+b=a.upper()
+c=a.lower()
+print(f"String in uppercase is {b} , String in lowercase is: {c}")
 
