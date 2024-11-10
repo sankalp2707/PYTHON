@@ -1,0 +1,136 @@
+
+1.Define a class named Circle which can be constructed by a radius. The Circle class has a
+method which can compute the area.
+CODE:
+class circle:
+    def __init__(self,radius):
+        self.radius=radius
+    
+    def area(self):
+        print(f"area is {3.14*self.radius**2}")
+
+cir=circle(5)
+cir.area()
+
+
+
+
+ 
+2. Define a class named Rectangle which can be constructed by a length and width. The
+Rectangle class has a method which can compute the area.
+CODE:
+class rectangle:
+    def __init__(self,length,width):
+        self.length=length
+        self.width=width
+    
+    def area(self):
+        print(f"area is {self.length*self.width}")
+
+rect=rectangle(12,65)
+rect.area()
+
+
+
+
+ 
+3. Define a class with a generator which can iterate the numbers, which are divisible by 7,
+between a given range 0 and n.
+CODE:
+class seven:
+    def __init__(self,n):
+        self.n=n
+    
+    def generator(self):
+        for i in range(self.n+1):
+            if i%7==0:
+                yield i
+
+obj=seven(80)
+for num in obj.generator():
+    print(num)
+
+
+
+
+
+ 
+4. Define a class named Shape and its subclass Square. The Square class has an init function
+which takes a length as argument. Both classes have a area function which can print the
+area of the shape where Shape's area is 0 by default.
+CODE:
+class shape:
+    def __init__(self):
+        pass
+    def area(self):
+        print(f"area is 0")
+class square(shape):
+    def __init__(self,n):
+        self.n=n
+    def area(self):
+        print(f"area is {self.n**2}")
+
+obj1=shape()
+obj1.area()
+obj2=square(9)
+obj2.area()
+
+
+
+
+ 
+5. Define a class which has at least two methods: getString: to get a string from console
+input and printString: to print the string in upper case. Also please include simple test
+function to test the class methods.
+CODE:
+class c:
+    def __init__(self,s=""):
+        self.s=s
+    
+    def getstring(self):
+        self.s=input("enter the string")
+    
+    def printstring(self):
+        print(f"string is : {self.s}")
+obj=c()
+obj.getstring()
+obj.printstring()
+
+
+
+
+
+
+ 
+6. Define a class Person and its two child classes: Male and Female. All classes have a
+method "getGender" which can print "Male" for Male class and "Female" for Female
+class.
+CODE:
+class parent:
+    def __init__(self):
+        pass
+    
+    def getgender(self):
+        pass
+    
+class male(parent):
+    def __init__(self):
+        pass
+    def getgender(self):
+        print("MALE")
+    
+class female(parent):
+    def __init__(self):
+        pass
+    def getgender(self):
+        print("FEMALE")
+
+p=parent() 
+m=male()
+m.getgender()
+f=female()
+f.getgender()
+
+
+
+
